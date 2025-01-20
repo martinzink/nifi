@@ -398,14 +398,15 @@ public class C2NifiClientService {
         result.setGroupId(processorStatus.getGroupId());
         result.setBytesRead(processorStatus.getBytesRead());
         result.setBytesWritten(processorStatus.getBytesWritten());
-        result.setFlowFilesIn(processorStatus.getFlowFilesReceived());
-        result.setFlowFilesOut(processorStatus.getFlowFilesSent());
-        result.setBytesIn(processorStatus.getBytesReceived());
-        result.setBytesOut(processorStatus.getBytesSent());
+        result.setFlowFilesIn(processorStatus.getInputCount());
+        result.setFlowFilesOut(processorStatus.getOutputCount());
+        result.setBytesIn(processorStatus.getInputBytes());
+        result.setBytesOut(processorStatus.getOutputBytes());
         result.setInvocations(processorStatus.getInvocations());
         result.setProcessingNanos(processorStatus.getProcessingNanos());
         result.setActiveThreadCount(processorStatus.getActiveThreadCount());
         result.setTerminatedThreadCount(processorStatus.getTerminatedThreadCount());
+        result.setRunState(processorStatus.getRunStatus().name());
         return result;
     }
 }
